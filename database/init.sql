@@ -114,6 +114,14 @@ VALUES('ad', 'min', 'admin@example.com', 1, 1, crypt('Contraseña123!', gen_salt
 UPDATE usuario SET admin = TRUE WHERE id = 1;
 
 INSERT INTO usuario (nombre, apellido, email, id_direccion, id_telefono, contraseña) 
+VALUES('Jorge', 'Melnik', 'jmelnik@gmail.com', 1, 1, crypt('Jmelnik19.', gen_salt('bf')));
+UPDATE usuario SET admin = TRUE WHERE id = 1;
+
+INSERT INTO usuario (nombre, apellido, email, id_direccion, id_telefono, contraseña) 
+VALUES('Francisco', 'Lima', 'francisco@lima.com', 1, 1, crypt('@LimaFrancisco1.', gen_salt('bf')));
+UPDATE usuario SET admin = TRUE WHERE id = 1;
+
+INSERT INTO usuario (nombre, apellido, email, id_direccion, id_telefono, contraseña) 
 VALUES('Repar', 'Tidor', 'repartidor@example.com', 1, 1, crypt('Contraseña123!', gen_salt('bf')));
 UPDATE usuario SET repartidor = TRUE WHERE id = 2;
 

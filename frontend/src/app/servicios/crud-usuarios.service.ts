@@ -9,6 +9,16 @@ export class CRUDUsuariosService {
   // Inyecta el servicio FetchService utilizando la función inject
   private apiService: FetchService = inject(FetchService);
 
+  async getAllUsers() {
+    try {
+      // Realiza una solicitud GET a la API para obtener todos los usuarios
+      const response = await this.apiService.get(`usuarios/`);
+      return response; // Retorna la respuesta de la API
+    } catch (error) {
+      console.log(error); // Maneja errores en la consola
+      return []; // Retorna un array vacío en caso de error
+    }
+  }
   // Método para obtener un usuario por su ID
   async getUserById(id_usuario: string) {
     try {

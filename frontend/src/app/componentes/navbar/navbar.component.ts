@@ -5,6 +5,7 @@ import {
   OnInit,
   Output,
   HostListener,
+  inject,
 } from '@angular/core';
 import { SearchComponent } from '../search/search.component';
 import { AuthService } from '../../servicios/auth.service';
@@ -29,12 +30,12 @@ export class NavbarComponent implements OnInit {
   };
 
   isDropdownOpen = false;
-
+  isadmin: boolean = false;
   @Input() withSearch: boolean = true;
   @Output() searchValueChange = new EventEmitter<string>();
 
   constructor(
-    private authservice: AuthService,
+    public authservice: AuthService,
     private crudUsuarios: CRUDUsuariosService,
     private router: Router,
     public carritoService: CarritoService,
@@ -97,5 +98,9 @@ export class NavbarComponent implements OnInit {
 
   onSearchValue(value: string) {
     this.searchValueChange.emit(value);
+  }
+
+  navegarA(ruta: string) {
+    this.router.navigate([ruta]);
   }
 }
